@@ -100,9 +100,11 @@ int MatrixMultiply(double res[3][3], double a[3][3], double b[3][3])
   CreateEmpty(mat);
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
+      double sum = 0;
       for (int k = 0; k < 3; k++) {
-        mat[i][j] += a[i][k] * b[k][j];
+        sum += a[i][k] * b[k][j];
       }
+      mat[i][j] = sum;
     }
   }
   CopyMatrix(res, mat);
@@ -154,6 +156,7 @@ int Rotate(double mat[3][3], double inv[3][3], double rads)
 {
   double cos_value = cos(rads);
   double sin_value = sin(rads);
+  printf("%lf, %lf\n", cos_value, sin_value);
   double rotate[3][3];
   CreateIdentity(rotate);
   rotate[0][0] = cos_value;
@@ -166,7 +169,7 @@ int Rotate(double mat[3][3], double inv[3][3], double rads)
   rotate[0][1] = -sin_value;
   rotate[1][0] = sin_value;
   rotate[1][1] = cos_value;
-  MatrixMultiply(mat, rotate, mat);
+  MatrixMultiply(inv, rotate, inv);
 
   return 1;
 }
