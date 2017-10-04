@@ -1,0 +1,34 @@
+[
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-I/FPT/HeadersC/", 
+            "-I/FPT/Source/", 
+            "/FPT/DotosC/G_graphics.o", 
+            "/FPT/DotosC/Non_graphics.o", 
+            "/FPT/DotosC/X_graphics.o", 
+            "-o", 
+            "lab_2.a", 
+            "lab_2.c"
+        ], 
+        "directory": "/home/arden/School/CS Graphics", 
+        "file": "lab_2.c"
+    }, 
+    {
+        "arguments": [
+            "cc", 
+            "-c", 
+            "-I/FPT/HeadersC/", 
+            "-I/FPT/Source/", 
+            "/FPT/DotosC/G_graphics.o", 
+            "/FPT/DotosC/Non_graphics.o", 
+            "/FPT/DotosC/X_graphics.o", 
+            "-o", 
+            "lab_2.a", 
+            "matrix_math.c"
+        ], 
+        "directory": "/home/arden/School/CS Graphics", 
+        "file": "matrix_math.c"
+    }
+]
