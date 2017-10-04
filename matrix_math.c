@@ -94,6 +94,14 @@ int CopyMatrix(double dest[3][3], double source[3][3])
   return 1;
 }
 
+int CopyMatrixN(double* dest, double* src, int n)
+{
+  for (int i = 0; i < n; i++) {
+    dest[i] = src[i];
+  }
+  return 1;
+}
+
 int MatrixMultiply(double res[3][3], double a[3][3], double b[3][3])
 {
   double mat[3][3];
@@ -113,10 +121,13 @@ int MatrixMultiply(double res[3][3], double a[3][3], double b[3][3])
 
 int MatrixMultiplyPoints(double* res_x, double* res_y, double mat[3][3], double* x, double* y, int n)
 {
+  double src_x[n], src_y[n];
   for (int i = 0; i < n; i++) {
-    res_x[i] = (mat[0][0] * x[i]) + (mat[0][1] * y[i]) + mat[0][2];
-    res_y[i] = (mat[1][0] * x[i]) + (mat[1][1] * y[i]) + mat[1][2];
+    src_x[i] = (mat[0][0] * x[i]) + (mat[0][1] * y[i]) + mat[0][2];
+    src_y[i] = (mat[1][0] * x[i]) + (mat[1][1] * y[i]) + mat[1][2];
   }
+  CopyMatrixN(res_x, src_x, n);
+  CopyMatrixN(res_y, src_y, n);
   return 1;
 }
 
@@ -156,7 +167,6 @@ int Rotate(double mat[3][3], double inv[3][3], double rads)
 {
   double cos_value = cos(rads);
   double sin_value = sin(rads);
-  printf("%lf, %lf\n", cos_value, sin_value);
   double rotate[3][3];
   CreateIdentity(rotate);
   rotate[0][0] = cos_value;

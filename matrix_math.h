@@ -9,6 +9,7 @@ int CreateIdentity(double mat[3][3]);
 int CreateEmpty(double mat[3][3]);
 
 int CopyMatrix(double dest[3][3], double source[3][3]);
+int CopyMatrixN(double* dest, double* src, int n);
 
 int MatrixMultiply(double res[3][3], double a[3][3], double b[3][3]);
 int MatrixMultiplyPoints(double* res_x, double* res_y, double mat[3][3], double* x, double* y, int n);
