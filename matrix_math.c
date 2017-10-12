@@ -131,6 +131,26 @@ int MatrixMultiplyPoints(double* res_x, double* res_y, double mat[3][3], double*
   return 1;
 }
 
+int NegateX(double a[3][3], double b[3][3])
+{
+  double reflect[3][3];
+  CreateIdentity(reflect);
+  reflect[0][0] = -1;
+  MatrixMultiply(a, reflect, a);
+  MatrixMultiply(b, b, reflect);
+  return 1;
+}
+
+int NegateY(double a[3][3], double b[3][3])
+{
+  double reflect[3][3];
+  CreateIdentity(reflect);
+  reflect[1][1] = -1;
+  MatrixMultiply(a, reflect, a);
+  MatrixMultiply(b, b, reflect);
+  return 1;
+}
+
 int Translate(double mat[3][3], double inv[3][3], double dx, double dy)
 {
   double trans[3][3];

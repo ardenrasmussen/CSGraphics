@@ -14,6 +14,9 @@ int CopyMatrixN(double* dest, double* src, int n);
 int MatrixMultiply(double res[3][3], double a[3][3], double b[3][3]);
 int MatrixMultiplyPoints(double* res_x, double* res_y, double mat[3][3], double* x, double* y, int n);
 
+int NegateX(double a[3][3], double b[3][3]);
+int NegateY(double a[3][3], double b[3][3]);
+
 int Translate(double mat[3][3], double inv[3][3], double dx, double dy);
 int Scale(double mat[3][3], double inv[3][3], double sx, double sy);
 int Rotate(double mat[3][3], double inv[3][3], double rads);
