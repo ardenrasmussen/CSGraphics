@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
   G_init_graphics(WIDTH, HEIGHT);
   G_rgb(0, 0, 0);
   G_clear();
-  G_rgb(1, 1, 1);
+  G_rgb(0, 1, 1);
   GetPolygon();
   G_close();
   return 0;
