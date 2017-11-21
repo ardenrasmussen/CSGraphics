@@ -36,7 +36,7 @@ rm $(1)
 printf "%b\n" "\033[0;32m\xE2\x9C\x94\033[0m"
 endef
 
-all: lab_1.a lab_2.a lab_3.a lab_4.a practice_midterm.a
+all: lab_1.a lab_2.a lab_3.a lab_4.a lab_5.a practice_midterm.a
 	printf "%b\n" "\033[0;32mCompiled all projects\033[0m"
 
 clean:
@@ -44,6 +44,7 @@ clean:
 	$(call Clean,lab_2.a)
 	$(call Clean,lab_3.a)
 	$(call Clean,lab_4.a)
+	$(call Clean,lab_5.a)
 	$(call Clean,practice_midterm.a)
 	printf "%b\n" "\033[0;33mRemoved all projects\033[0m"
 
@@ -57,6 +58,9 @@ lab_3.a: lab_3.c matrix_math.c
 	$(call Compile,$@,$^)
 
 lab_4.a: lab_4.c matrix_math.c
+	$(call Compile,$@,$^)
+
+lab_5.a: lab_5.c matrix_math.c
 	$(call Compile,$@,$^)
 
 practice_midterm.a: practice_midterm.c matrix_math.c
