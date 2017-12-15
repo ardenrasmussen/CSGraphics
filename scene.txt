@@ -1,0 +1,19 @@
+3
+xyz/torus2.xyz
+3
+rx 30
+tz 100
+ty 40
+xyz/cylinder.xyz
+4
+sx 0.7
+sz 1.2
+tx 5
+ry 10
+xyz/torus2.xyz
+5
+rx 5
+sx 0.7
+sy 0.4
+tz 7
+ry 20

@@ -30,8 +30,8 @@ int Rotate(double mat[3][3], double inv[3][3], double rads);
 ///////////////////////////////////////////////////////////////////////////////
 
 int PrintMatrix3D(double mat[4][4]);
-int printMatrixN33D(double* x, double* y, double* z, int n);
-int printMatrixN43D(double* x, double* y, double* z, int n);
+int PrintMatrixN33D(double* x, double* y, double* z, int n);
+int PrintMatrixN43D(double* x, double* y, double* z, int n);
 
 int CreateIdentity3D(double mat[4][4]);
 int CreateEmpty3D(double mat[4][4]);
@@ -59,5 +59,12 @@ int RotateCSZ3D(double a[4][4], double b[4][4], double cs, double sn);
 int XProduct3D(double res[3], double a[3], double b[3]);
 int MakeMovementSequenceMatrix3D(double mat[4][4], double inv[4][4], int num_movements, int* movement_type_list, double* parameter_list);
 int View3D(double view[4][4], double view_inverse[4][4], double eye_x, double eye_y, double eye_z, double coi_x, double coi_y, double coi_z, double up_x, double up_y, double up_z);
+
+///////////////////////////////////////////////////////////////////////////////
+// 3D Vector Arithmetic
+///////////////////////////////////////////////////////////////////////////////
+
+int GetVec(double x1, double y1, double z1, double x2, double y2, double z2, double res[3]);
+int Cross(double lhs[3], double rhs[3], double res[3]);
 
 #endif /* ifndef MATRIX_MATH_H_ */

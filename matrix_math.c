@@ -529,3 +529,18 @@ int RotateCSZ3D(double a[4][4], double b[4][4], double cs, double sn)
   MatrixMultiply3D(b, rotate, b);
   return 1;
 }
+
+int GetVec(double x1, double y1, double z1, double x2, double y2, double z2, double res[3])
+{
+  res[0] = x2 - x1;
+  res[1] = y2 - y1;
+  res[2] = z2 - z1;
+  return 1;
+}
+int Cross(double lhs[3], double rhs[3], double res[3])
+{
+  res[0] = (lhs[1] * rhs[2] - lhs[2] * rhs[1]);
+  res[1] = (lhs[2] * rhs[0] - lhs[0] * rhs[2]);
+  res[2] = (lhs[0] * rhs[1] - lhs[1] * rhs[0]);
+  return 1;
+}

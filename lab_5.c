@@ -46,6 +46,14 @@ struct Object {
 struct Object objects[10];
 int n_obj;
 
+void CalcCenter(struct Object* obj)
+{
+  for (int i = 0; i < obj->points_n; i++) {
+    obj->x[i] -= obj->center_x;
+    obj->y[i] -= obj->center_y;
+    obj->z[i] -= obj->center_z;
+  }
+}
 struct Object LoadObject(const char* file)
 {
   FILE* f = fopen(file, "r");
@@ -75,6 +83,7 @@ struct Object LoadObject(const char* file)
   obj.center_x = (obj.max_x + obj.min_x) / 2.0;
   obj.center_y = (obj.max_y + obj.min_y) / 2.0;
   obj.center_z = (obj.max_z + obj.min_z) / 2.0;
+  CalcCenter(&obj);
   fscanf(f, "%i", &obj.poly_n);
   for (int i = 0; i < obj.poly_n; i++) {
     fscanf(f, "%i", &obj.poly_size[i]);
@@ -88,23 +97,6 @@ struct Object LoadObject(const char* file)
   obj.green = 0.8;
   obj.blue = 0.8;
   return obj;
-}
-
-void CalcCenter(struct Object* obj)
-{
-  double maxv[3] = { obj->x[0], obj->y[0], obj->z[0] };
-  double minv[3] = { obj->x[0], obj->y[0], obj->z[0] };
-  for (int i = 1; i < obj->points_n; i++) {
-    maxv[0] = max(maxv[0], obj->x[i]);
-    maxv[1] = max(maxv[1], obj->y[i]);
-    maxv[2] = max(maxv[2], obj->z[i]);
-    minv[0] = min(minv[0], obj->x[i]);
-    minv[1] = min(minv[1], obj->y[i]);
-    minv[2] = min(minv[2], obj->z[i]);
-  }
-  obj->center_x = ((maxv[0] - minv[0]) / 2.0) + minv[0];
-  obj->center_y = ((maxv[1] - minv[1]) / 2.0) + minv[1];
-  obj->center_z = ((maxv[2] - minv[2]) / 2.0) + minv[2];
 }
 
 void DrawPolygon(double* x, double* y, int n)
